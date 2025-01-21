@@ -1,3 +1,9 @@
+if (process.env.NODE_ENV !== "PRODUCTION") {
+    require("dotenv").config({
+        path: "config/.env",
+    });
+}
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -13,7 +19,6 @@ connectDatabase();
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 100, // Limit each IP to 100 requests per windowMs
-    // Set trust proxy to true if you are behind a proxy
     trustProxy: true
 });
 
