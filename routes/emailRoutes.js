@@ -8,7 +8,6 @@ router.get("/", (req, res) => {
 });
 
 router.post('/scheduleEmail', async (req, res) => {
-    console.log(req.body);
     const { from, to, subject, text: html, sendAt, gap } = req.body;
     const email = new Email({ from, to, subject, text: html, sendAt, gap });
 
