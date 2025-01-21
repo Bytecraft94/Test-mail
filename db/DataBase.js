@@ -5,6 +5,7 @@ const connectDatabase = async () => {
         await mongoose.connect(process.env.MONGODB_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
+            poolSize: 10,  // Connection pool size
             connectTimeoutMS: 60000,
             socketTimeoutMS: 60000
         });
