@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const emailRoutes = require('./routes/emailRoutes');
-const connectDatabase = require("./config/db");
+const connectDatabase = require("./db/DataBase");
 
 const app = express();
 const port = process.env.PORT || 5000;
