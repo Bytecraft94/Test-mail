@@ -11,7 +11,7 @@ const emailRoutes = require('./routes/emailRoutes');
 const connectDatabase = require("./db/DataBase");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 connectDatabase();
 
@@ -19,8 +19,14 @@ app.get("/", (req, res) => {
     res.send("Hello World");
 });
 
+// Use the frontend URL in CORS options
+const corsOptions = {
+    origin: process.env.FRONTEND_URL,
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use('/api', emailRoutes);
 
 app.listen(port, () => {
