@@ -22,7 +22,7 @@ const sendEmail = (from, recipient, subject, html, delay) => {
 
     setTimeout(async () => {
         try {
-            await transporter.sendMail(message);
+             transporter.sendMail(message);
             console.log('Email sent to', recipient);
         } catch (error) {
             console.error('Error sending email to', recipient, ':', error.message);
