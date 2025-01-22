@@ -29,8 +29,9 @@ app.get("/", (req, res) => {
 });
 
 const corsOptions = {
-    origin: process.env.FRONTEND_URL,
-    optionsSuccessStatus: 200
+    origin: "http://localhost:3000",
+Credential: true,
+methods: [ "GET", "POST","PUT","DELETE"]
 };
 
 app.use(bodyParser.json());
